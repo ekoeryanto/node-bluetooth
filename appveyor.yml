@@ -16,7 +16,7 @@ matrix:
 
 install:
   - ps: Install-Product node 12 $env:PLATFORM
-  - cmd: npm ci
+  - cmd: npm install
   - cmd: npx prebuild-ci
 test_script:
   - node --version
@@ -30,3 +30,4 @@ branches:
 
 cache:
   - '%APPDATA%\npm-cache'
+  - 'node_modules'
