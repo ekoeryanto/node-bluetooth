@@ -1,0 +1,32 @@
+version: "{build}"
+
+platform: 
+  - x64
+  - x86
+
+image: Visual Studio 2017
+
+init:
+  - git config --global core.autocrlf input
+  - git config --global user.name "Eko Eryanto"
+  - git config --global user.email ekoeryanto@gmail.com
+
+matrix:
+  fast_finish: true
+
+install:
+  - ps: Install-Product node 12 $env:PLATFORM
+  - cmd: npm ci
+  - cmd: npx prebuild-ci
+test_script:
+  - node --version
+  - npm --version
+
+build: off
+
+branches:
+  only:
+    - appveyor
+
+cache:
+  - '%APPDATA%\npm-cache'
