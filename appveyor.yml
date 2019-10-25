@@ -15,7 +15,8 @@ matrix:
   fast_finish: true
 
 install:
-  - ps: Install-Product node 12 $env:PLATFORM
+  - ps: Install-Product node 10 $env:PLATFORM
+  - cmd: SET JOBS=4
   - cmd: npm install
   - cmd: npx prebuild-ci
 test_script:
