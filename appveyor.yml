@@ -18,7 +18,10 @@ install:
   - ps: Install-Product node 10 $env:PLATFORM
   - cmd: SET JOBS=4
   - cmd: npm install
-  - cmd: npx prebuild-ci
+  - cmd: npx prebuild --strip -r electron --all -u %PREBUILD_TOKEN%
+  - cmd: npx prebuild --strip -r node-webkit --all -u %PREBUILD_TOKEN%
+  - cmd: npx prebuild --strip --all -u %PREBUILD_TOKEN%
+  # - cmd: npx prebuild-ci
 test_script:
   - node --version
   - npm --version
