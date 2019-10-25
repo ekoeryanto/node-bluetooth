@@ -1,6 +1,6 @@
 {
   "name": "node-bluetooth",
-  "version": "1.2.6",
+  "version": "1.2.3",
   "description": "Bluetooth serial port communication for Node.js",
   "keywords": [
     "bluetooth"
@@ -17,8 +17,8 @@
     "prebuild-install": "^5.3.2"
   },
   "engines": {
-    "node": ">= 0.8.x",
-    "npm": ">= 1.1.x"
+    "node": ">=0.8.x <12.x",
+    "npm": ">=5.2.x"
   },
   "scripts": {
     "install": "prebuild-install || node-gyp configure build",
